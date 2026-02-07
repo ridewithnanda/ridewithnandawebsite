@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join as Driver - RideWithNandaa | Become a Partner</title>
+    <meta name="description" content="Join RideWithNandaa as a verified driver partner. Earn flexible income, be your own boss, and connect with travellers.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --black: #000000;
+            --white: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            color: var(--white);
+            background: var(--black);
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--black);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--white);
+            border-radius: 4px;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--white);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        .navbar-toggler {
+            border-color: var(--white);
+        }
+        
+        .navbar-toggler-icon {
+            filter: invert(1);
+        }
+        
+        .nav-link {
+            color: var(--white);
+            font-weight: 400;
+            margin: 0 1rem;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+        
+        .nav-link:hover {
+            color: var(--white);
+            opacity: 1;
+        }
+        
+        .btn-custom {
+            background: var(--white);
+            border: 1px solid var(--white);
+            color: var(--black);
+            padding: 0.7rem 2rem;
+            border-radius: 0;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+        
+        .btn-custom:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            padding: 12rem 0 6rem;
+            background: var(--black);
+        }
+        
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+        
+        /* Benefits Section */
+        .benefits-section {
+            padding: 6rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+        
+        .benefit-card {
+            background: var(--black);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem 2rem;
+            height: 100%;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .benefit-card:hover {
+            border-color: var(--white);
+        }
+        
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .benefit-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .benefit-description {
+            opacity: 0.7;
+            line-height: 1.6;
+        }
+        
+        /* Requirements Section */
+        .requirements-section {
+            padding: 6rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .requirement-item {
+            background: var(--black);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: start;
+            gap: 1.5rem;
+        }
+        
+        .requirement-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+        
+        .requirement-content h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .requirement-content p {
+            opacity: 0.7;
+            margin: 0;
+        }
+        
+        /* Application Form */
+        .application-section {
+            padding: 6rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .form-label {
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-control, .form-select {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: var(--white);
+            padding: 0.8rem;
+            border-radius: 0;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            background: transparent;
+            border-color: var(--white);
+            color: var(--white);
+            box-shadow: none;
+        }
+        
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .form-select option {
+            background: var(--black);
+            color: var(--white);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--black);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            border-color: var(--white);
+            color: var(--white);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+        
+        /* WhatsApp Widget */
+        .whatsapp-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+        
+        .whatsapp-button {
+            width: 60px;
+            height: 60px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--black);
+            font-size: 1.8rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+        }
+        
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            color: var(--black);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">RideWithNandaa</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about-us.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#fleet">Fleet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="driver.html">Join as Driver</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact-us.html">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="index.html#booking" class="btn btn-custom">Book Now</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="hero-title">Drive with RideWithNandaa</h1>
+                    <p class="hero-subtitle">Be your own boss. Earn on your schedule. Join our network of trusted drivers.</p>
+                    <a href="#application" class="btn btn-custom btn-lg">Apply Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="section-title">Why Drive with Us?</h2>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <h3 class="benefit-title">Competitive Earnings</h3>
+                        <p class="benefit-description">Earn more with fair rates and transparent pricing. Keep the majority of your earnings.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3 class="benefit-title">Flexible Schedule</h3>
+                        <p class="benefit-description">Drive when you want. Choose trips that fit your schedule and preferences.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="benefit-title">Verified Network</h3>
+                        <p class="benefit-description">Be part of a trusted community of professional drivers serving quality customers.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3 class="benefit-title">24/7 Support</h3>
+                        <p class="benefit-description">Get help whenever you need it. Our support team is always available.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-route"></i>
+                        </div>
+                        <h3 class="benefit-title">Regular Trips</h3>
+                        <p class="benefit-description">Access consistent bookings from Delhi NCR to Uttarakhand and beyond.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3 class="benefit-title">Growth Opportunities</h3>
+                        <p class="benefit-description">Build your reputation and grow your business with us.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Requirements Section -->
+    <section class="requirements-section">
+        <div class="container">
+            <h2 class="section-title">Requirements to Join</h2>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="requirement-item">
+                        <div class="requirement-icon">
+                            <i class="fas fa-id-card"></i>
+                        </div>
+                        <div class="requirement-content">
+                            <h4>Valid Driver's License</h4>
+                            <p>Must have a valid driving license for commercial vehicles with at least 3 years of driving experience.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="requirement-item">
+                        <div class="requirement-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="requirement-content">
+                            <h4>Own Vehicle</h4>
+                            <p>Sedan, Ertiga, or Innova in good condition with valid registration and insurance.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="requirement-item">
+                        <div class="requirement-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="requirement-content">
+                            <h4>Clean Record</h4>
+                            <p>No major traffic violations or criminal record. Background verification required.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="requirement-item">
+                        <div class="requirement-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="requirement-content">
+                            <h4>Smartphone</h4>
+                            <p>Must have a smartphone with active data connection for trip coordination.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="requirement-item">
+                        <div class="requirement-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <div class="requirement-content">
+                            <h4>Communication Skills</h4>
+                            <p>Ability to communicate clearly in Hindi and basic English.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form -->
+    <section id="application" class="application-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="section-title">Apply to Drive</h2>
+                    <form id="driverForm">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" class="form-control" placeholder="Enter your full name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" placeholder="+91 " required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" class="form-control" placeholder="your@email.com" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">City</label>
+                                <input type="text" class="form-control" placeholder="Your city" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Vehicle Type</label>
+                                <select class="form-select" required>
+                                    <option value="">Select Vehicle</option>
+                                    <option value="sedan">Sedan</option>
+                                    <option value="ertiga">Maruti Ertiga</option>
+                                    <option value="innova">Toyota Innova</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Years of Driving Experience</label>
+                                <select class="form-select" required>
+                                    <option value="">Select Experience</option>
+                                    <option value="3-5">3-5 Years</option>
+                                    <option value="5-10">5-10 Years</option>
+                                    <option value="10+">10+ Years</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Do you have a valid commercial driving license?</label>
+                                <select class="form-select" required>
+                                    <option value="">Select</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Preferred Routes (Optional)</label>
+                                <input type="text" class="form-control" placeholder="e.g., Delhi to Uttarakhand">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Additional Information</label>
+                                <textarea class="form-control" placeholder="Tell us more about yourself and why you want to join..." rows="4"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-custom btn-lg w-100">Submit Application via WhatsApp</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <h3 class="footer-title">RideWithNandaa</h3>
+                    <p class="mb-3">Connecting travellers with verified local drivers for affordable, reliable rides. Making travel simple, personal, and stress-free.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/ridewithnandaa" target="_blank" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/919990051602" target="_blank" class="social-link">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="/cdn-cgi/l/email-protection#77051e1312001e031f191619131637101a161e1b5914181a" class="social-link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#fleet">Our Fleet</a></li>
+                        <li><a href="driver.html">Join as Driver</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h3 class="footer-title">Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html#booking">Outstation Rides</a></li>
+                        <li><a href="index.html#booking">Local Packages</a></li>
+                        <li><a href="index.html#booking">Airport Transfer</a></li>
+                        <li><a href="index.html#services">One-Way Trips</a></li>
+                        <li><a href="index.html#services">Tour Packages</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h3 class="footer-title">Contact Us</h3>
+                    <ul class="footer-links">
+                        <li>
+                            <i class="fas fa-phone me-2"></i>
+                            <a href="tel:+919990051602">+91 99900 51602</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope me-2"></i>
+                            <a href="/cdn-cgi/l/email-protection#f7859e9392809e839f9996999396b7909a969e9bd994989a"><span class="__cf_email__" data-cfemail="f7859e9392809e839f9996999396b7909a969e9bd994989a">[email&#160;protected]</span></a>
+                        </li>
+                        <li>
+                            <i class="fab fa-instagram me-2"></i>
+                            <a href="https://www.instagram.com/ridewithnandaa" target="_blank">@ridewithnandaa</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock me-2"></i>
+                            24/7 Available
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="mb-0">© 2025 RideWithNandaa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Widget -->
+    <div class="whatsapp-widget">
+        <a href="https://wa.me/919990051602?text=Hi, I want to become a driver partner" target="_blank" class="whatsapp-button">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Scripts -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Driver Application Form Handler
+        document.getElementById('driverForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let message = `👨‍✈️ *New Driver Application*\n\n`;
+            
+            const inputs = this.querySelectorAll('input, select, textarea');
+            inputs.forEach(input => {
+                if (input.value && input.type !== 'submit') {
+                    const label = input.previousElementSibling?.textContent || input.name;
+                    message += `*${label}:* ${input.value}\n`;
+                }
+            });
+            
+            message += `\n_Application from R
