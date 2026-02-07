@@ -1,7 +1,7 @@
-# RideWithNandaa Website - Admin Panel
+# RideWithNanda Website - Admin Panel
 
 ## 📋 Overview
-Complete website package for RideWithNandaa with admin dashboard for content management.
+Complete website package for RideWithNanda with admin dashboard for content management.
 
 ## 🌐 Website Pages
 - **index.html** - Homepage with services, fleet, and booking forms
@@ -164,7 +164,7 @@ For technical support or questions:
 
 ## 📜 License & Credits
 
-© 2025 RideWithNandaa. All rights reserved.
+© 2025 RideWithNanda. All rights reserved.
 
 ---
 
