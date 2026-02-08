@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Ride - RideWithNanda | Trusted Tours & Taxi Service</title>
+    <meta name="description" content="Book your ride with RideWithNanda. Quick, easy, and transparent booking for Delhi NCR to Uttarakhand trips.">
+
+    <!-- Google Fonts (Same as your site) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --black: #000000;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            color: var(--white);
+            background: var(--black);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .booking-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--black);
+            padding: 50px 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+
+        .booking-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .booking-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .booking-header p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0;
+        }
+
+        .form-section {
+            margin-bottom: 40px;
+        }
+
+        .form-section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+        }
+
+        .form-section-title i {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--white);
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .required {
+            color: #ff6b6b;
+            margin-left: 3px;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="date"],
+        input[type="time"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            font-family: 'Outfit', sans-serif;
+            background: transparent;
+            color: var(--white);
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--white);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 20px;
+            padding-right: 40px;
+        }
+
+        select option {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .row-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .row-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 3px solid var(--white);
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .info-card strong {
+            color: var(--white);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .success-message {
+            display: none;
+            background: rgba(39, 174, 96, 0.15);
+            border: 1px solid #27ae60;
+            border-left: 3px solid #27ae60;
+            color: #a8e6cf;
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        .success-message h3 {
+            color: var(--white);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px 20px;
+            background: var(--white);
+            color: var(--black);
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .contact-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-links a:hover {
+            opacity: 0.8;
+        }
+
+        .contact-links i {
+            font-size: 18px;
+        }
+
+        @media (max-width: 768px) {
+            .booking-container {
+                padding: 30px 20px;
+            }
+
+            .booking-header h1 {
+                font-size: 36px;
+            }
+
+            .row-2,
+            .row-3 {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="booking-container">
+        <div class="booking-header">
+            <h1>RideWithNanda</h1>
+            <p>Quick & Easy Booking | Trusted Local Drivers</p>
+        </div>
+
+        <div class="success-message" id="successMessage">
+            <h3><i class="fas fa-check-circle"></i> Booking Request Sent!</h3>
+            <p>We'll send you a quote within 2 hours on WhatsApp</p>
+        </div>
+
+        <div class="info-card">
+            <strong><i class="fas fa-info-circle"></i> About Us</strong>
+            Verified local drivers | Delhi/NCR to Uttarakhand & beyond | Affordable & reliable rides | 24/7 Available
+        </div>
+
+        <form id="bookingForm">
+            <!-- Personal Details Section -->
+            <div class="form-section">
+                <div class="form-section-title">
+                    <i class="fas fa-user"></i> Personal Details
+                </div>
+
+                <div class="form-group">
+                    <label>Full Name <span class="required">*</span></label>
+                    <input type="text" name="name" required placeholder="Enter your full name">
+                </div>
+
+                <div class="row-2">
+                    <div class="form-group">
+                        <label>Phone Number <span class="required">*</span></label>
+                        <input type="tel" name="phone" required placeholder="10-digit mobile number">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" placeholder="your@email.com">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trip Details Section -->
+            <div class="form-section">
+                <div class="form-section-title">
+                    <i class="fas fa-map-marker-alt"></i> Trip Details
+                </div>
+
+                <div class="form-group">
+                    <label>Pickup Location <span class="required">*</span></label>
+                    <input type="text" name="pickup" required placeholder="e.g., Connaught Place, Delhi">
+                </div>
+
+                <div class="form-group">
+                    <label>Drop Location <span class="required">*</span></label>
+                    <input type="text" name="drop" required placeholder="e.g., Nainital, Uttarakhand">
+                </div>
+
+                <div class="row-2">
+                    <div class="form-group">
+                        <label>Journey Date <span class="required">*</span></label>
+                        <input type="date" name="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Pickup Time <span class="required">*</span></label>
+                        <select name="time" required>
+                            <option value="">Select time</option>
+                            <option value="12:00 AM - 2:00 AM">12:00 AM - 2:00 AM</option>
+                            <option value="2:00 AM - 4:00 AM">2:00 AM - 4:00 AM</option>
+                            <option value="4:00 AM - 6:00 AM">4:00 AM - 6:00 AM</option>
+                            <option value="6:00 AM - 8:00 AM">6:00 AM - 8:00 AM</option>
+                            <option value="8:00 AM - 10:00 AM">8:00 AM - 10:00 AM</option>
+                            <option value="10:00 AM - 12:00 PM">10:00 AM - 12:00 PM</option>
+                            <option value="12:00 PM - 2:00 PM">12:00 PM - 2:00 PM</option>
+                            <option value="2:00 PM - 4:00 PM">2:00 PM - 4:00 PM</option>
+                            <option value="4:00 PM - 6:00 PM">4:00 PM - 6:00 PM</option>
+                            <option value="6:00 PM - 8:00 PM">6:00 PM - 8:00 PM</option>
+                            <option value="8:00 PM - 10:00 PM">8:00 PM - 10:00 PM</option>
+                            <option value="10:00 PM - 12:00 AM">10:00 PM - 12:00 AM</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row-2">
+                    <div class="form-group">
+                        <label>Trip Type <span class="required">*</span></label>
+                        <select name="tripType" required>
+                            <option value="">Select trip type</option>
+                            <option value="One Way">One Way</option>
+                            <option value="Round Trip">Round Trip</option>
+                            <option value="Multi-Day Tour">Multi-Day Tour</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Number of Passengers <span class="required">*</span></label>
+                        <input type="number" name="passengers" required min="1" max="20" placeholder="e.g., 4">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vehicle Selection Section -->
+            <div class="form-section">
+                <div class="form-section-title">
+                    <i class="fas fa-car"></i> Vehicle Selection
+                </div>
+
+                <div class="form-group">
+                    <label>Preferred Vehicle <span class="required">*</span></label>
+                    <select name="vehicle" required>
+                        <option value="">Select vehicle type</option>
+                        <option value="Sedan (4 seater)">Sedan (4 seater)</option>
+                        <option value="MUV (6-7 seater)">MUV (6-7 seater)</option>
+                        <option value="SUV (7 seater)">SUV (7 seater)</option>
+                        <option value="Premium SUV (7 seater)">Premium SUV (7 seater)</option>
+                        <option value="Tempo Traveller (12+ seater)">Tempo Traveller (12+ seater)</option>
+                        <option value="Any - Suggest best option">Any - Suggest best option</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Additional Details Section -->
+            <div class="form-section">
+                <div class="form-section-title">
+                    <i class="fas fa-notes-medical"></i> Additional Details
+                </div>
+
+                <div class="form-group">
+                    <label>Special Requirements / Notes</label>
+                    <textarea name="notes" placeholder="e.g., Need child seat, Extra luggage space, Stops required, etc."></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                <i class="fas fa-paper-plane"></i> Get Quote & Book Now
+            </button>
+        </form>
+
+        <div class="form-footer">
+            <p>© 2025 RideWithNanda. All rights reserved.</p>
+            <div class="contact-links">
+                <a href="https://wa.me/919990051602" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://www.instagram.com/ridewithnandaa" target="_blank">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="mailto:ridewithnanda@gmail.com">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+                <a href="tel:+919990051602">
+                    <i class="fas fa-phone"></i> Call
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+
+            // Create WhatsApp message
+            const message = `🚗 NEW BOOKING REQUEST - RideWithNanda
+
+👤 PERSONAL DETAILS:
+Name: ${data.name}
+Phone: ${data.phone}
+Email: ${data.email || 'Not provided'}
+
+📍 TRIP DETAILS:
+Pickup: ${data.pickup}
+Drop: ${data.drop}
+Date: ${data.date}
+Time: ${data.time}
+Trip Type: ${data.tripType}
+Passengers: ${data.passengers}
+
+🚙 VEHICLE:
+${data.vehicle}
+
+📝 ADDITIONAL NOTES:
+${data.notes || 'None'}
+
+---
+Please send quote ASAP!`;
+
+            // Replace with your WhatsApp number
+            const phoneNumber = '919990051602';
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+            // Show success message
+            document.getElementById('successMessage').classList.add('show');
+
+            // Reset form
+            this.reset();
+
+            // Open WhatsApp after 1 second
+            setTimeout(() => {
+                window.open(whatsappURL, '_blank');
+            }, 1000);
+
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                document.getElementById('successMessage').classList.remove('show');
+            }, 5000);
+        });
+
+        // Set minimum date to today
+        const dateInput = document.querySelector('input[type="date"]');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+    </script>
+</body>
+</html>
